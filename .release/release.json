@@ -1,0 +1,33 @@
+{
+  "version": "0.5.90",
+  "archive": "tabnav-v0.5.90.zip",
+  "sha256": "45ffe22c4f1cb0620c1767781aedea1766bfd696c3e5cb838a22dfbb9b0ec6fa",
+  "sourceCommit": "3f6dc761f97df70ea93b6a110ef814e23944b026",
+  "notesSha256": "58b4b217521784fd90a00bb50f0ac9c209179c10d4e36c397e56624e58809953",
+  "media": [
+    {
+      "name": "v0.5.86-sidebar-motion.webp",
+      "sha256": "71cdc5a35a9b1323092a97ebcc097e79d76867f849646c4474d008d94507ed58"
+    },
+    {
+      "name": "v0.5.88-period-settings.webp",
+      "sha256": "4abf398ff5a9a315a7d6a131351ea3d1fefb5e1465ac31af84511b8cefb7ec64"
+    },
+    {
+      "name": "v0.5.88-seven-day-ranking.webp",
+      "sha256": "74736ccce1a08cd4293ed41ac7be520ccd8d93fc64b2010ff18e3f133ca92ca3"
+    },
+    {
+      "name": "v0.5.88-live-update.webp",
+      "sha256": "cce78ee9e685f833ed1116ca2177ac97a140e3b0496e7fa57e2022309fdb4766"
+    },
+    {
+      "name": "v0.5.89-three-day-settings.webp",
+      "sha256": "fc4b8ca8b13cc27d41d537f42287ca91762b2ea8d2c9a3683d47926b69f94c4f"
+    },
+    {
+      "name": "v0.5.90-workspace-and-ranking.webp",
+      "sha256": "2135f7923a5a6b9dccdf85f3ca9f6c30b4ec3fb699241b9e5402c71c0cd4b8f8"
+    }
+  ]
+}
