@@ -67,6 +67,35 @@ class PackageTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Invalid release tag"):
             validator.verify("../v1.2.3", self.directory)
 
+    def prepare_notes(self, name="v1.2.2-sidebar.webp", content=b"RIFF1234WEBPpreview"):
+        self.prepare()
+        notes = b"## Upgrade\n\nSidebar animation\n"
+        (self.directory / "release-notes.md").write_bytes(notes)
+        (self.directory / name).write_bytes(content)
+        metadata = json.loads((self.directory / "release.json").read_text())
+        metadata.update(notesSha256=hashlib.sha256(notes).hexdigest(), media=[{"name": name, "sha256": hashlib.sha256(content).hexdigest()}])
+        (self.directory / "release.json").write_text(json.dumps(metadata))
+
+    def test_accepts_upgrade_notes_and_compressed_media(self):
+        self.prepare_notes()
+        self.assertEqual(len(validator.verify("v1.2.3", self.directory)["media"]), 1)
+
+    def test_rejects_changed_notes_or_screenshot(self):
+        for name in ("release-notes.md", "v1.2.2-sidebar.webp"):
+            with self.subTest(name=name):
+                self.prepare_notes()
+                with (self.directory / name).open("ab") as file:
+                    file.write(b"changed")
+                with self.assertRaises(ValueError):
+                    validator.verify("v1.2.3", self.directory)
+
+    def test_rejects_large_or_mislabeled_screenshot(self):
+        for content in (b"not a webp", b"RIFF1234WEBP" + b"x" * (200 * 1024)):
+            with self.subTest(size=len(content)):
+                self.prepare_notes(content=content)
+                with self.assertRaisesRegex(ValueError, "Invalid screenshot"):
+                    validator.verify("v1.2.3", self.directory)
+
 
 if __name__ == "__main__":
     unittest.main()

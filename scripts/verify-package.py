@@ -27,6 +27,34 @@ def verify(tag, directory=Path(".release")):
     if (directory / f"{archive_name}.sha256").read_text() != f"{digest}  {archive_name}\n":
         raise ValueError("Checksum file mismatch")
 
+    # Older tags have installation-only notes and remain recoverable.
+    if "notesSha256" in metadata:
+        notes = (directory / "release-notes.md").read_bytes()
+        if not notes.strip() or len(notes) > 48 * 1024 or hashlib.sha256(notes).hexdigest() != metadata["notesSha256"]:
+            raise ValueError("Invalid upgrade notes or checksum")
+    elif metadata.get("media"):
+        raise ValueError("Screenshots require upgrade notes")
+    seen = set()
+    total = 0
+    for item in metadata.get("media", []):
+        name = item["name"]
+        if not re.fullmatch(r"v\d+\.\d+\.\d+-[a-zA-Z0-9][a-zA-Z0-9_-]*\.(webp|png|jpg|gif)", name) or name in seen:
+            raise ValueError("Invalid or duplicate screenshot name")
+        seen.add(name)
+        content = (directory / name).read_bytes()
+        total += len(content)
+        extension = name.rsplit(".", 1)[1]
+        valid_header = {
+            "webp": content.startswith(b"RIFF") and content[8:12] == b"WEBP",
+            "png": content.startswith(b"\x89PNG\r\n\x1a\n"),
+            "jpg": content.startswith(b"\xff\xd8\xff"),
+            "gif": content.startswith((b"GIF87a", b"GIF89a")),
+        }[extension]
+        if not valid_header or len(content) > 200 * 1024 or hashlib.sha256(content).hexdigest() != item["sha256"]:
+            raise ValueError("Invalid screenshot, size or checksum")
+    if total > 1024 * 1024:
+        raise ValueError("Release screenshots exceed 1 MiB")
+
     with zipfile.ZipFile(archive) as bundle:
         entries = bundle.infolist()
         names = {entry.filename for entry in entries}
