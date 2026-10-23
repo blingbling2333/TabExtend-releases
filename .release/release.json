@@ -1,0 +1,41 @@
+{
+  "version": "0.5.100",
+  "archive": "tabnav-v0.5.100.zip",
+  "sha256": "ce96cd46889c9f72be457b87dc61e869c5d176a1f15e4a3c30db48b698c25e37",
+  "sourceCommit": "04cef493af18ff6864418f1a0186e85638788d2b",
+  "notesSha256": "c25ee38e1d87314a80656231d1ef4b18f29f57c507cf6dc61cf4e135501e7edb",
+  "media": [
+    {
+      "name": "v0.5.92-workspace-category-menu.webp",
+      "sha256": "92b9d534e7a9695a396fa154fe94db6e7e30f5cd50400a61f7af0791ef4732cb"
+    },
+    {
+      "name": "v0.5.93-category-menu-height.webp",
+      "sha256": "6e73e2be355fc4968fe2c72f08597f4cfd75dbff7c38d3b30864ce6be35fd3e2"
+    },
+    {
+      "name": "v0.5.94-category-menu-motion.webp",
+      "sha256": "5e452764440515c50ea5a749978d494d9ba978478b41474be3d0ffe4a7275f0b"
+    },
+    {
+      "name": "v0.5.95-category-menu-pointer-path.webp",
+      "sha256": "dc538807d83cfcd45113ad8f0d0b9b4da8175a631206c770719b3edf2e3dbbdb"
+    },
+    {
+      "name": "v0.5.96-sidebar-search-cleanup.webp",
+      "sha256": "cbd7308683b32a35fb740adf66f249deca0ce693f70d2cfb1166f8621fb9750d"
+    },
+    {
+      "name": "v0.5.97-sidebar-search-radius.webp",
+      "sha256": "f0307c6e2d06dd9d9531d33e28b2344ef5d3f8c680797f10bb273d5a0bb02877"
+    },
+    {
+      "name": "v0.5.98-sidebar-search-comfort.webp",
+      "sha256": "0d88a4f9e87f88ff959583d0c27cfd66d6bb5b45504d12a38e02dfd7edd5a816"
+    },
+    {
+      "name": "v0.5.99-sidebar-search-font.webp",
+      "sha256": "6c788e529c3da13a662c5c4814ee584e68b2be37109384336ee5984b4cdfc117"
+    }
+  ]
+}
