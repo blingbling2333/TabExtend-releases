@@ -1,0 +1,25 @@
+{
+  "version": "0.5.105",
+  "archive": "tabnav-v0.5.105.zip",
+  "sha256": "26dbdec54c774305596b3c58a277cda59cf6f75c039ef26545eb2b87182dbfdb",
+  "sourceCommit": "830cd073a5606ff529190dabe9d048f3ed8ee0dd",
+  "notesSha256": "c24c4f22641b6c658803a879d228cfb4c341cce91b8ffcd3ce5976a46603b933",
+  "media": [
+    {
+      "name": "v0.5.101-mobile-bookmarks.webp",
+      "sha256": "7743cb01d36a9fe5170a39b1a5e083f8b545499cbf5b74319c013c39434767d8"
+    },
+    {
+      "name": "v0.5.103-mobile-spacing.webp",
+      "sha256": "fc1f606903adcef725463a71610afc954cce0f62aebd9f46c186426d4eaa41c2"
+    },
+    {
+      "name": "v0.5.104-new-group.webp",
+      "sha256": "36ad966b24efaa379b5c1a9e0245e0c6409bcecfdb09431cf712292c095ccd8d"
+    },
+    {
+      "name": "v0.5.105-web-title.webp",
+      "sha256": "cd5cb113d16d7842d187609f265b631e1f57502533d6c8006fb2061a5338c6cf"
+    }
+  ]
+}
