@@ -1,0 +1,81 @@
+{
+  "version": "0.5.115",
+  "archive": "tabnav-v0.5.115.zip",
+  "sha256": "8311908d73cd42c99775511f86beb2ecd8ba1424bc633f90d425998a5e5c2f5e",
+  "sourceCommit": "61a75e6f7a2143edcea5443f383e10aae34470ae",
+  "notesSha256": "7bdd8bbc6528d92cc78734f8d84f714760a08ba335a8e4123bb481bd8dd3e274",
+  "media": [
+    {
+      "name": "v0.5.106-entry.webp",
+      "sha256": "40d075f5bdfd3a43f74f0e2a5575b662a8f0fbaf658acabe653aad675a76acf0"
+    },
+    {
+      "name": "v0.5.106-organizer.webp",
+      "sha256": "7e2f86215d8ef4fbef6e2e7601f695f7ea7d66016c262fa4071b56833509cf92"
+    },
+    {
+      "name": "v0.5.107-entry.webp",
+      "sha256": "a988e85a46e071590db08e18dbb82b75fa4c27cfa2712ed448114d7b2cb63711"
+    },
+    {
+      "name": "v0.5.107-organizer.webp",
+      "sha256": "234611857c5c81e1f159a4e1f82ef85f126723b1be0c2ddccfb8c325ab59744f"
+    },
+    {
+      "name": "v0.5.107-dark.webp",
+      "sha256": "1f7de849773b9325b712dc803fbaf1bd2dc58144afdcbf89e76fe58d835279f2"
+    },
+    {
+      "name": "v0.5.108-motion.webp",
+      "sha256": "4752fa209e6a12e0d50cebd555f95227352ae3f1e09b3f65170f1b04b651edd0"
+    },
+    {
+      "name": "v0.5.108-titles.webp",
+      "sha256": "ce9cf796a2a374de79b1f9f25bff620e0049fbf1397bfb54647fec911d13fa8f"
+    },
+    {
+      "name": "v0.5.109-destination.webp",
+      "sha256": "42d9ad98fba0f504be6cd40b4c378905a2bd455bb3923c7edeb2f1095ced25ba"
+    },
+    {
+      "name": "v0.5.109-destination-dark.webp",
+      "sha256": "df49dbf0197ff57f616641a519b59f33ac26539c1f12a996004da7f5a80b8d56"
+    },
+    {
+      "name": "v0.5.110-drawer.webp",
+      "sha256": "0cdf847f41e0416659de2c8999b218fd95fd498f0326abb08d20ac9b4f583b2f"
+    },
+    {
+      "name": "v0.5.110-selection.webp",
+      "sha256": "4b522237f2b8e3f94e3c7fa457bc70265099e5c64d134eef54f2ebe6eb08f7cd"
+    },
+    {
+      "name": "v0.5.111-corner.webp",
+      "sha256": "30a0bd15e308eb24ee5605ecee956341334df135e62a811ce7a96c86555cbe26"
+    },
+    {
+      "name": "v0.5.112-row-highlight.webp",
+      "sha256": "695a99078a8c45204edfb6a226833eaa12f095f0314e467ed0e81bdccae780bb"
+    },
+    {
+      "name": "v0.5.113-scrollbar.webp",
+      "sha256": "32bd5874b94ead5703943f178b202c9f046076ae7d480d668a12925a6dde128f"
+    },
+    {
+      "name": "v0.5.114-skins-light.webp",
+      "sha256": "210a63e9199d16dfbcce8179595b332eaeca379a01d9a577d5036bb7a5824a46"
+    },
+    {
+      "name": "v0.5.114-skins-dark.webp",
+      "sha256": "f19030dfb5170dab7f1fb25ccd97c08c84545151f61691bc50bdc3c02626700f"
+    },
+    {
+      "name": "v0.5.115-grove-porcelain.webp",
+      "sha256": "36288d5e72fd477a396f7cde1098dc3869c5ca315855b2df93cca885c5d23f3f"
+    },
+    {
+      "name": "v0.5.115-marigold-graphite.webp",
+      "sha256": "f6f6acc653341e186b005d711b597e839434bbbde4d8c77ba07f5030f77d072c"
+    }
+  ]
+}
