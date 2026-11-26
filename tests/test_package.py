@@ -33,11 +33,20 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(validator.verify("v1.2.3", self.directory)["version"], "1.2.3")
 
     def test_rejects_private_files_and_source_maps(self):
-        for path in (".env", "assets/app.js.map", "src/app.ts", "private.pem", "../escape.js"):
+        for path in (".env", "assets/app.js.map", "src/app.ts", "private.pem", "../escape.js", "assets/other.txt", "licenses/other.txt"):
             with self.subTest(path=path):
                 self.files[path] = "must not ship"
                 self.prepare()
                 with self.assertRaises(ValueError):
+                    validator.verify("v1.2.3", self.directory)
+                del self.files[path]
+
+    def test_rejects_unreviewed_contents_under_bundled_license_names(self):
+        for path in ("licenses/tab-out.txt", "assets/OFL-Ctw1BaIb.txt"):
+            with self.subTest(path=path):
+                self.files[path] = "altered notice"
+                self.prepare()
+                with self.assertRaisesRegex(ValueError, "License checksum mismatch"):
                     validator.verify("v1.2.3", self.directory)
                 del self.files[path]
 

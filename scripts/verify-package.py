@@ -8,6 +8,13 @@ import sys
 import zipfile
 
 
+# Reviewed notices distributed with the organizer and its two font families.
+LICENSE_DIGESTS = {
+    "assets/OFL-Ctw1BaIb.txt": "d4bdcb79d4ca21d3963b8bd770ebf7a0d6b18767c4ae355ffdecbdbdd5d25f6c",
+    "licenses/tab-out.txt": "6d3011c008b1b4290f4f5713d86550bcc4b57ab477d9ed5eb893c6a7042add57",
+}
+
+
 def verify(tag, directory=Path(".release")):
     if not re.fullmatch(r"v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)", tag):
         raise ValueError("Invalid release tag")
@@ -70,6 +77,10 @@ def verify(tag, directory=Path(".release")):
                 continue
             if any(part.startswith(".") for part in path.parts):
                 raise ValueError("Hidden files must not be distributed")
+            if entry.filename in LICENSE_DIGESTS:
+                if hashlib.sha256(bundle.read(entry)).hexdigest() != LICENSE_DIGESTS[entry.filename]:
+                    raise ValueError(f"License checksum mismatch: {entry.filename}")
+                continue
             allowed_root = entry.filename in {"manifest.json", "newtab.html", "popup.html", "favicon.ico"}
             allowed_asset = path.parts[0] in {"assets", "icons", "emojibase-data"} and path.suffix in {".js", ".css", ".json", ".svg", ".png", ".ico", ".woff", ".woff2", ".ttf"}
             if not (allowed_root or allowed_asset):
