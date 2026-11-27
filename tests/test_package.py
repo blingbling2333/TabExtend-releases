@@ -42,7 +42,7 @@ class PackageTests(unittest.TestCase):
                 del self.files[path]
 
     def test_rejects_unreviewed_contents_under_bundled_license_names(self):
-        for path in ("licenses/tab-out.txt", "assets/OFL-Ctw1BaIb.txt"):
+        for path in ("licenses/tab-out.txt", "assets/OFL-Ctw1BaIb.txt", "assets/OFL-CHm4TUe6.txt"):
             with self.subTest(path=path):
                 self.files[path] = "altered notice"
                 self.prepare()

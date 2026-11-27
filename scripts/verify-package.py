@@ -8,8 +8,9 @@ import sys
 import zipfile
 
 
-# Reviewed notices distributed with the organizer and its two font families.
+# Reviewed notices distributed with the organizer and its bundled font families.
 LICENSE_DIGESTS = {
+    "assets/OFL-CHm4TUe6.txt": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",
     "assets/OFL-Ctw1BaIb.txt": "d4bdcb79d4ca21d3963b8bd770ebf7a0d6b18767c4ae355ffdecbdbdd5d25f6c",
     "licenses/tab-out.txt": "6d3011c008b1b4290f4f5713d86550bcc4b57ab477d9ed5eb893c6a7042add57",
 }
