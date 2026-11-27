@@ -32,7 +32,7 @@ class PublishingTests(unittest.TestCase):
         previous = Path.cwd()
         os.chdir(self.root)
         try:
-            with patch("sys.argv", [str(self.publisher), "v1.2.3"]), patch.dict("os.environ", {"RUNNER_TEMP": str(self.root), "GITHUB_REPOSITORY": "blingbling2333/TabExtend-releases"}), patch("subprocess.check_output", side_effect=gh):
+            with patch("sys.argv", [str(self.publisher), "v1.2.3"]), patch.dict("os.environ", {"RUNNER_TEMP": str(self.root), "GITHUB_REPOSITORY": "blingbling2333/Open-TabExtend"}), patch("subprocess.check_output", side_effect=gh):
                 runpy.run_path(str(self.publisher), run_name="__main__")
         finally:
             os.chdir(previous)

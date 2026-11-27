@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Download, SHA-256 verify, and unpack TabExtend (Chrome extension name: TabNav).
+  Download, SHA-256 verify, and unpack Open-TabExtend (Chrome extension name: TabNav).
 
 .DESCRIPTION
   Safe for both humans and AI coding agents. Supports in-place upgrades that keep
@@ -8,14 +8,22 @@
   local data.
 
 .EXAMPLE
-  irm https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.ps1 | iex
+  irm https://raw.githubusercontent.com/blingbling2333/Open-TabExtend/main/scripts/install.ps1 | iex
 
 .EXAMPLE
   .\install.ps1 -Version 0.6.0 -Json
 #>
 [CmdletBinding()]
 param(
-  [string]$Dir = $(if ($env:TABEXTEND_INSTALL_DIR) { $env:TABEXTEND_INSTALL_DIR } else { Join-Path $env:LOCALAPPDATA "TabExtend" }),
+  [string]$Dir = $(
+    if ($env:TABEXTEND_INSTALL_DIR) {
+      $env:TABEXTEND_INSTALL_DIR
+    } elseif ((Test-Path (Join-Path $env:LOCALAPPDATA "TabExtend\manifest.json")) -and -not (Test-Path (Join-Path $env:LOCALAPPDATA "Open-TabExtend\manifest.json"))) {
+      Join-Path $env:LOCALAPPDATA "TabExtend"
+    } else {
+      Join-Path $env:LOCALAPPDATA "Open-TabExtend"
+    }
+  ),
   [string]$Version = "latest",
   [switch]$Json,
   [switch]$Force,
@@ -24,7 +32,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$Repo = if ($env:TABEXTEND_REPO) { $env:TABEXTEND_REPO } else { "blingbling2333/TabExtend-releases" }
+$Repo = if ($env:TABEXTEND_REPO) { $env:TABEXTEND_REPO } else { "blingbling2333/Open-TabExtend" }
 $ApiBase = if ($env:TABEXTEND_API_BASE) { $env:TABEXTEND_API_BASE } else { "https://api.github.com" }
 $WebBase = if ($env:TABEXTEND_WEB_BASE) { $env:TABEXTEND_WEB_BASE } else { "https://github.com" }
 
@@ -56,7 +64,7 @@ if ($Version -eq "latest") {
 
 $Headers = @{
   "Accept"     = "application/vnd.github+json"
-  "User-Agent" = "TabExtend-Installer/1.0"
+  "User-Agent" = "Open-TabExtend-Installer/1.0"
 }
 if ($env:GITHUB_TOKEN) {
   $Headers["Authorization"] = "Bearer $($env:GITHUB_TOKEN)"
@@ -95,7 +103,7 @@ try {
 
 if (-not $ZipUrl) {
   if ($Version -eq "latest") {
-    $Resp = Invoke-WebRequest -Uri "$WebBase/$Repo/releases/latest" -Method Head -MaximumRedirection 5 -Headers @{ "User-Agent" = "TabExtend-Installer/1.0" }
+    $Resp = Invoke-WebRequest -Uri "$WebBase/$Repo/releases/latest" -Method Head -MaximumRedirection 5 -Headers @{ "User-Agent" = "Open-TabExtend-Installer/1.0" }
     $FinalUri = if ($Resp.BaseResponse.ResponseUri) { $Resp.BaseResponse.ResponseUri.AbsoluteUri } else { $Resp.BaseResponse.RequestMessage.RequestUri.AbsoluteUri }
     $TagName = ($FinalUri.TrimEnd('/') -split '/')[-1]
   } else {
@@ -119,8 +127,8 @@ try {
   $ShaPath = Join-Path $TempDir $ShaName
 
   Write-Info "Downloading $ZipName ..."
-  Invoke-WebRequest -Uri $ZipUrl -Headers @{ "User-Agent" = "TabExtend-Installer/1.0" } -OutFile $ZipPath
-  Invoke-WebRequest -Uri $ShaUrl -Headers @{ "User-Agent" = "TabExtend-Installer/1.0" } -OutFile $ShaPath
+  Invoke-WebRequest -Uri $ZipUrl -Headers @{ "User-Agent" = "Open-TabExtend-Installer/1.0" } -OutFile $ZipPath
+  Invoke-WebRequest -Uri $ShaUrl -Headers @{ "User-Agent" = "Open-TabExtend-Installer/1.0" } -OutFile $ShaPath
 
   $ExpectedSha = ((Get-Content -Path $ShaPath -Raw).Trim() -split '\s+')[0].ToLowerInvariant()
   if ($ExpectedSha.Length -ne 64) {
@@ -199,7 +207,7 @@ try {
     } | ConvertTo-Json -Depth 4
   } else {
     Write-Host ""
-    Write-Host "TabExtend $TagName ($Action) ready!"
+    Write-Host "Open-TabExtend $TagName ($Action) ready!"
     Write-Host "  Extension name : $ExtensionName"
     if ($PreviousVersion) {
       Write-Host "  Version        : $NewVersion (upgraded from $PreviousVersion)"

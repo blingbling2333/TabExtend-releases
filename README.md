@@ -1,24 +1,24 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="TabExtend Logo" width="84" height="84" />
-  <h1>TabExtend</h1>
+  <img src="assets/logo.svg" alt="Open-TabExtend Logo" width="84" height="84" />
+  <h1>Open-TabExtend</h1>
   <p><strong>本地优先的 Chrome 新标签页工作台</strong><br/>用工作区、分类分组、内置笔记待办与底部渐进抽屉，让每一次打开新标签页都安静顺手。</p>
 
   <p>
-    <a href="https://github.com/blingbling2333/TabExtend-releases/releases/latest">
-      <img src="https://img.shields.io/github/v/release/blingbling2333/TabExtend-releases?label=Latest&color=2563eb&style=flat-square" alt="Latest Release" />
+    <a href="https://github.com/blingbling2333/Open-TabExtend/releases/latest">
+      <img src="https://img.shields.io/github/v/release/blingbling2333/Open-TabExtend?label=Latest&color=2563eb&style=flat-square" alt="Latest Release" />
     </a>
     <img src="https://img.shields.io/badge/Chrome-Manifest%20V3-111827?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome MV3" />
     <img src="https://img.shields.io/badge/Architecture-Local--First-059669?style=flat-square" alt="Local-First" />
     <a href="INSTALL_FOR_AI.md">
       <img src="https://img.shields.io/badge/Install-AI%20Agent%20Ready-7c3aed?style=flat-square" alt="AI Agent Ready" />
     </a>
-    <a href="https://github.com/blingbling2333/TabExtend-releases/releases">
-      <img src="https://img.shields.io/github/downloads/blingbling2333/TabExtend-releases/total?label=Downloads&color=0284c7&style=flat-square" alt="Total Downloads" />
+    <a href="https://github.com/blingbling2333/Open-TabExtend/releases">
+      <img src="https://img.shields.io/github/downloads/blingbling2333/Open-TabExtend/total?label=Downloads&color=0284c7&style=flat-square" alt="Total Downloads" />
     </a>
   </p>
 
   <p>
-    <a href="https://github.com/blingbling2333/TabExtend-releases/releases/latest"><strong>⬇️ 下载最新版本</strong></a>
+    <a href="https://github.com/blingbling2333/Open-TabExtend/releases/latest"><strong>⬇️ 下载最新版本</strong></a>
     &nbsp;·&nbsp;
     <a href="#-一句话让-ai-帮你安装">🤖 让 AI 帮你安装</a>
     &nbsp;·&nbsp;
@@ -26,7 +26,7 @@
     &nbsp;·&nbsp;
     <a href="#安装">📦 手动安装</a>
     &nbsp;·&nbsp;
-    <a href="https://github.com/blingbling2333/TabExtend-releases/releases">📋 更新记录</a>
+    <a href="https://github.com/blingbling2333/Open-TabExtend/releases">📋 更新记录</a>
   </p>
 </div>
 
@@ -36,7 +36,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.webp" />
     <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.webp" />
-    <img src="assets/hero-light.webp" alt="TabExtend 新标签页工作台预览（自动适配浅色与深色模式）" width="100%" />
+    <img src="assets/hero-light.webp" alt="Open-TabExtend 新标签页工作台预览（自动适配浅色与深色模式）" width="100%" />
   </picture>
   <sub>▲ 自动随 GitHub 深浅色外观切换 · 左侧双层标签标识与常驻站点胶囊 + 分组卡片（链接 / 笔记 / 待办）</sub>
 </div>
@@ -50,7 +50,7 @@
 直接把下面这句话发给 **Claude Code / Codex / Cursor / Antigravity / OpenClaw** 等任意 AI Agent：
 
 ```text
-帮我安装（或更新）这个 Chrome 扩展：https://github.com/blingbling2333/TabExtend-releases
+帮我安装（或更新）这个 Chrome 扩展：https://github.com/blingbling2333/Open-TabExtend
 ```
 
 AI 会自动完成：拉取最新正式版 `tabnav-v*.zip` → 严格校验 SHA-256 → 解压到永久目录（更新时保持原目录不变、自动清理旧文件并完整保留本地数据）→ 告诉你最后一步在 `chrome://extensions` 点一下「加载已解压的扩展程序」或「重新加载」。
@@ -60,13 +60,13 @@ AI 会自动完成：拉取最新正式版 `tabnav-v*.zip` → 严格校验 SHA-
 **macOS / Linux：**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/blingbling2333/Open-TabExtend/main/scripts/install.sh | bash
 ```
 
 **Windows (PowerShell)：**
 
 ```powershell
-irm https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/blingbling2333/Open-TabExtend/main/scripts/install.ps1 | iex
 ```
 
 <details>
@@ -74,13 +74,13 @@ irm https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scr
 
 ```bash
 # 输出机器可读 JSON（推荐给 AI Agent）
-curl -fsSL https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.sh | bash -s -- --json
+curl -fsSL https://raw.githubusercontent.com/blingbling2333/Open-TabExtend/main/scripts/install.sh | bash -s -- --json
 
 # 指定永久安装目录或特定版本
-curl -fsSL https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.sh | bash -s -- --dir ~/Applications/TabExtend --version 0.6.0
+curl -fsSL https://raw.githubusercontent.com/blingbling2333/Open-TabExtend/main/scripts/install.sh | bash -s -- --dir ~/Applications/Open-TabExtend --version 0.6.0
 ```
 
-- 默认永久目录：macOS `~/Applications/TabExtend` · Linux `~/.local/share/tabextend` · Windows `%LOCALAPPDATA%\TabExtend`
+- 默认永久目录：macOS `~/Applications/Open-TabExtend` · Linux `~/.local/share/open-tabextend` · Windows `%LOCALAPPDATA%\Open-TabExtend`（若检测到旧版 `TabExtend` 目录会自动原地升级）
 - 完整 Agent 操作手册见 [`INSTALL_FOR_AI.md`](INSTALL_FOR_AI.md) 与 [`llms.txt`](llms.txt)
 - 出于 Chrome 安全策略，脚本绝不会篡改浏览器配置强行注入扩展；解压校验完成后由你在 `chrome://extensions` 确认加载即可。
 
@@ -93,7 +93,7 @@ curl -fsSL https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/m
 在看板底部保留一条克制的 `16px` 呼吸边槽：鼠标越靠近底边，**Open Browser Tabs** 抽屉露出的越多，顶部细线进度条从进入触发区起连续跟随；贴底短停即丝滑展开，把手自然升至顶部并随时一键回到看板。
 
 <div align="center">
-  <img src="assets/demo-drawer.gif" alt="TabExtend 底部渐进预览与自动展开 Open Browser Tabs 抽屉动图演示" width="92%" />
+  <img src="assets/demo-drawer.gif" alt="Open-TabExtend 底部渐进预览与自动展开 Open Browser Tabs 抽屉动图演示" width="92%" />
 </div>
 
 ---
@@ -127,8 +127,8 @@ curl -fsSL https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/m
 
 如果你更习惯纯手动下载安装（不运行脚本）：
 
-1. 打开 [**最新版本发布页**](https://github.com/blingbling2333/TabExtend-releases/releases/latest)，在 **Assets** 中下载 `tabnav-v版本号.zip`。**不要下载** GitHub 自动生成的 `Source code`。
-2. 将 ZIP 解压到一个准备长期保留的目录（例如 `~/Applications/TabExtend`）。
+1. 打开 [**最新版本发布页**](https://github.com/blingbling2333/Open-TabExtend/releases/latest)，在 **Assets** 中下载 `tabnav-v版本号.zip`。**不要下载** GitHub 自动生成的 `Source code`。
+2. 将 ZIP 解压到一个准备长期保留的目录（例如 `~/Applications/Open-TabExtend`）。
 3. 在 Chrome 地址栏打开 `chrome://extensions`，开启右上角的「开发者模式」。
 4. 点击「加载已解压的扩展程序」，选择直接包含 `manifest.json` 的目录。
 5. 打开新标签页即可使用。Chrome 扩展列表中显示的名称目前为 **TabNav**。
@@ -166,4 +166,4 @@ Get-FileHash tabnav-v版本号.zip -Algorithm SHA256
 - 正式版本按补丁号每 5 个版本发布一次（如 `0.5.95`、`0.6.0`），发布页汇总该批次全部升级特性、对应提交记录及界面截图/动图。
 - 本仓库提供经过自动测试和构建的公开安装包、安装脚本与发布校验工具；源码仓库保持私有。
 - 面向 AI 工具的索引与脚本：[`llms.txt`](llms.txt) · [`INSTALL_FOR_AI.md`](INSTALL_FOR_AI.md) · [`scripts/install.sh`](scripts/install.sh) · [`scripts/install.ps1`](scripts/install.ps1)。
-- 发现问题或建议欢迎在 [Issues](https://github.com/blingbling2333/TabExtend-releases/issues) 中反馈，请附上扩展版本、Chrome 版本和复现步骤，**切勿上传账号凭据或私人收藏数据**。
+- 发现问题或建议欢迎在 [Issues](https://github.com/blingbling2333/Open-TabExtend/issues) 中反馈，请附上扩展版本、Chrome 版本和复现步骤，**切勿上传账号凭据或私人收藏数据**。

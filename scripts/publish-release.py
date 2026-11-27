@@ -12,8 +12,8 @@ validator = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(validator)
 tag = sys.argv[1]
 metadata = validator.verify(tag)
-repository = os.environ.get("GITHUB_REPOSITORY", "blingbling2333/TabExtend-releases")
-if repository != "blingbling2333/TabExtend-releases":
+repository = os.environ.get("GITHUB_REPOSITORY", "blingbling2333/Open-TabExtend")
+if repository != "blingbling2333/Open-TabExtend":
     raise ValueError("Unexpected release repository")
 
 
@@ -73,7 +73,7 @@ curl -fsSL https://raw.githubusercontent.com/{repository}/main/scripts/install.s
 SHA-256: `{metadata['sha256']}`
 """)
     if release is None:
-        gh("release", "create", tag, "--repo", repository, "--verify-tag", "--draft", "--title", f"TabExtend {tag}", "--notes-file", str(notes))
+        gh("release", "create", tag, "--repo", repository, "--verify-tag", "--draft", "--title", f"Open-TabExtend {tag}", "--notes-file", str(notes))
     gh("release", "upload", tag, str(Path(".release") / archive), str(Path(".release") / f"{archive}.sha256"), *map(str, media), "--repo", repository, "--clobber")
     latest = api_or_none(f"{endpoint}/latest")
     current_version = tuple(map(int, metadata["version"].split(".")))

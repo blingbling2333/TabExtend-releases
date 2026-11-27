@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# TabExtend (Chrome extension name: TabNav) installer & in-place upgrader.
+# Open-TabExtend (Chrome extension name: TabNav) installer & in-place upgrader.
 # Safe for both humans and AI coding agents (supports --json structured output).
 
-REPO="${TABEXTEND_REPO:-blingbling2333/TabExtend-releases}"
+REPO="${TABEXTEND_REPO:-blingbling2333/Open-TabExtend}"
 API_BASE="${TABEXTEND_API_BASE:-https://api.github.com}"
 WEB_BASE="${TABEXTEND_WEB_BASE:-https://github.com}"
 VERSION="latest"
@@ -17,12 +17,12 @@ usage() {
   cat <<'EOF'
 Usage: install.sh [options]
 
-Download, SHA-256 verify, and unpack TabExtend (TabNav) into a persistent
+Download, SHA-256 verify, and unpack Open-TabExtend (TabNav) into a persistent
 directory ready for Chrome's "Load unpacked" or in-place "Reload".
 
 Options:
-  --dir <path>        Target directory (default: ~/Applications/TabExtend on macOS,
-                      ~/.local/share/tabextend on Linux)
+  --dir <path>        Target directory (default: ~/Applications/Open-TabExtend on macOS,
+                      ~/.local/share/open-tabextend on Linux; auto-detects legacy TabExtend dir)
   --version <ver>     Release tag or version (e.g. 0.6.0, v0.6.0, or latest)
   --json              Emit a single JSON summary object on stdout
   --force             Allow replacing a non-empty directory without manifest.json
@@ -94,8 +94,20 @@ sha256_file() {
 
 if [ -z "$INSTALL_DIR" ]; then
   case "$(uname -s)" in
-    Darwin) INSTALL_DIR="${HOME}/Applications/TabExtend" ;;
-    *)      INSTALL_DIR="${HOME}/.local/share/tabextend" ;;
+    Darwin)
+      if [ -f "${HOME}/Applications/TabExtend/manifest.json" ] && [ ! -f "${HOME}/Applications/Open-TabExtend/manifest.json" ]; then
+        INSTALL_DIR="${HOME}/Applications/TabExtend"
+      else
+        INSTALL_DIR="${HOME}/Applications/Open-TabExtend"
+      fi
+      ;;
+    *)
+      if [ -f "${HOME}/.local/share/tabextend/manifest.json" ] && [ ! -f "${HOME}/.local/share/open-tabextend/manifest.json" ]; then
+        INSTALL_DIR="${HOME}/.local/share/tabextend"
+      else
+        INSTALL_DIR="${HOME}/.local/share/open-tabextend"
+      fi
+      ;;
   esac
 fi
 
@@ -133,8 +145,8 @@ cleanup() {
 trap cleanup EXIT
 
 RELEASE_JSON="${TMP_DIR}/release.json"
-CURL_API_ARGS=(-fsSL -H "Accept: application/vnd.github+json" -H "User-Agent: TabExtend-Installer/1.0")
-CURL_DL_ARGS=(-fsSL -H "User-Agent: TabExtend-Installer/1.0")
+CURL_API_ARGS=(-fsSL -H "Accept: application/vnd.github+json" -H "User-Agent: Open-TabExtend-Installer/1.0")
+CURL_DL_ARGS=(-fsSL -H "User-Agent: Open-TabExtend-Installer/1.0")
 if [ -n "${GITHUB_TOKEN:-}" ]; then
   CURL_API_ARGS+=(-H "Authorization: Bearer ${GITHUB_TOKEN}")
 fi
@@ -386,7 +398,7 @@ PY
 else
   cat <<EOF
 
-TabExtend ${TAG_NAME} (${ACTION}) ready!
+Open-TabExtend ${TAG_NAME} (${ACTION}) ready!
   Extension name : ${EXTENSION_NAME:-TabNav}
   Version        : ${NEW_VERSION}${PREVIOUS_VERSION:+ (upgraded from ${PREVIOUS_VERSION})}
   SHA-256        : ${ACTUAL_SHA} (verified)

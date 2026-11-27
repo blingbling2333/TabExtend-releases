@@ -82,7 +82,7 @@ class MockGitHubServer:
 
         release_payload = json.dumps({
             "tag_name": tag,
-            "html_url": f"https://github.com/blingbling2333/TabExtend-releases/releases/tag/{tag}",
+            "html_url": f"https://github.com/blingbling2333/Open-TabExtend/releases/tag/{tag}",
             "assets": [
                 {
                     "name": "v0.6.0-preview.webp",
@@ -100,11 +100,11 @@ class MockGitHubServer:
             ],
         }).encode("utf-8")
 
-        self.routes[f"/repos/blingbling2333/TabExtend-releases/releases/tags/{tag}"] = (
+        self.routes[f"/repos/blingbling2333/Open-TabExtend/releases/tags/{tag}"] = (
             200, release_payload, "application/json"
         )
         if as_latest:
-            self.routes["/repos/blingbling2333/TabExtend-releases/releases/latest"] = (
+            self.routes["/repos/blingbling2333/Open-TabExtend/releases/latest"] = (
                 200, release_payload, "application/json"
             )
 
@@ -127,7 +127,7 @@ class InstallScriptTests(unittest.TestCase):
         env = os.environ.copy()
         env["TABEXTEND_API_BASE"] = self.server.base_url
         env["TABEXTEND_WEB_BASE"] = self.server.base_url
-        env["TABEXTEND_REPO"] = "blingbling2333/TabExtend-releases"
+        env["TABEXTEND_REPO"] = "blingbling2333/Open-TabExtend"
         return subprocess.run(
             ["bash", str(self.script), *args],
             env=env,
@@ -210,19 +210,19 @@ class InstallScriptTests(unittest.TestCase):
     def test_falls_back_to_web_redirect_when_api_is_rate_limited(self):
         zip_v1 = self.tmp / "tabnav-v0.6.0.zip"
         sha_v1 = make_extension_zip(zip_v1, "0.6.0")
-        self.server.routes["/repos/blingbling2333/TabExtend-releases/releases/latest"] = (
+        self.server.routes["/repos/blingbling2333/Open-TabExtend/releases/latest"] = (
             403, b'{"message":"API rate limit exceeded"}', "application/json"
         )
-        self.server.routes["/blingbling2333/TabExtend-releases/releases/latest"] = (
-            302, f"{self.server.base_url}/blingbling2333/TabExtend-releases/releases/tag/v0.6.0".encode("utf-8"), "text/plain"
+        self.server.routes["/blingbling2333/Open-TabExtend/releases/latest"] = (
+            302, f"{self.server.base_url}/blingbling2333/Open-TabExtend/releases/tag/v0.6.0".encode("utf-8"), "text/plain"
         )
-        self.server.routes["/blingbling2333/TabExtend-releases/releases/tag/v0.6.0"] = (
+        self.server.routes["/blingbling2333/Open-TabExtend/releases/tag/v0.6.0"] = (
             200, b"ok", "text/html"
         )
-        self.server.routes["/blingbling2333/TabExtend-releases/releases/download/v0.6.0/tabnav-v0.6.0.zip"] = (
+        self.server.routes["/blingbling2333/Open-TabExtend/releases/download/v0.6.0/tabnav-v0.6.0.zip"] = (
             200, zip_v1.read_bytes(), "application/zip"
         )
-        self.server.routes["/blingbling2333/TabExtend-releases/releases/download/v0.6.0/tabnav-v0.6.0.zip.sha256"] = (
+        self.server.routes["/blingbling2333/Open-TabExtend/releases/download/v0.6.0/tabnav-v0.6.0.zip.sha256"] = (
             200, f"{sha_v1}  tabnav-v0.6.0.zip\n".encode("utf-8"), "text/plain"
         )
 
