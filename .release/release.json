@@ -1,0 +1,65 @@
+{
+  "version": "0.6.0",
+  "archive": "tabnav-v0.6.0.zip",
+  "sha256": "0aec52b49db48852e95cf5bdf07bc8d878003a995965e8e9fa8dbc61c8c21e7d",
+  "sourceCommit": "64fb6752b911eaa9c059bccdf329828b1c1d844e",
+  "notesSha256": "aac4b1d3f5cb5027df53e9a05aca1fef855b224cae61a8d391a8491462778db9",
+  "media": [
+    {
+      "name": "v0.5.116-inter-font.webp",
+      "sha256": "b4af05a4fb25b735a82040ada0627851a77f1ec34cd5fcf290c1a167c99277d1"
+    },
+    {
+      "name": "v0.5.117-title-case-menus.webp",
+      "sha256": "40fe95964e62e0c1f0eaf54f180bfddd4aa75c70d6e81b9e47294c5d7d9ae0f3"
+    },
+    {
+      "name": "v0.5.118-organizer-masthead.webp",
+      "sha256": "53b65c415a7d8c5cda336847cd7dc079d5745c5e2bf688d3472acedbf582add4"
+    },
+    {
+      "name": "v0.5.119-tab-out-parity.webp",
+      "sha256": "019e5c66e944b91b7d3c7b56dbb594304039dc2c165e20317d5bb1781baacdbb"
+    },
+    {
+      "name": "v0.5.120-rail-site-icon-frame.webp",
+      "sha256": "d378111b4d112821f55012b0d6c89774ff852d3c7bbae4bf587a74a78f3fed5d"
+    },
+    {
+      "name": "v0.5.121-archive-search-focus.webp",
+      "sha256": "6d270907644f9ba5dcec92b4abe702bb4987f540b610763397b9a309e8a0550a"
+    },
+    {
+      "name": "v0.5.122-split-save-read-later.webp",
+      "sha256": "6f36bcff87a04c23b6ab3ea31c57d3c9193fbe568d5729017ed3cae39429c7a0"
+    },
+    {
+      "name": "v0.5.123-compact-row-actions.webp",
+      "sha256": "6e89e52a0c077fa576323d75b7e02ea3d82890026feb342e7054f8962f041ef6"
+    },
+    {
+      "name": "v0.5.124-rail-capsule-radius.webp",
+      "sha256": "a246475a7ca00cc7253faee00747942b775d3d479fe4fe396ed9c97c0d803878"
+    },
+    {
+      "name": "v0.5.125-rail-compass-logo.webp",
+      "sha256": "f05f778afb9197d03d5d9b21f64ddd9550b5a012f01ed611f3eaa048754ffee0"
+    },
+    {
+      "name": "v0.5.126-rail-layered-tabs-and-spacing.webp",
+      "sha256": "5e58154bf1ab6940ee36952956e4a4f4a0eca5320703da82173285a80229d2f0"
+    },
+    {
+      "name": "v0.5.127-proximity-peek-tabs-drawer.webp",
+      "sha256": "4cdf42ff7ae062e71523c1dd06531605436f08052778397c7a1e62dfac4e130c"
+    },
+    {
+      "name": "v0.5.129-open-drawer-top-gap-border.webp",
+      "sha256": "9ba0b75bbc5baad5fdb89c42de150ff26b0438eac70896698a1bb56673932288"
+    },
+    {
+      "name": "v0.5.130-continuous-drawer-progress.webp",
+      "sha256": "18664af5fd7b3dbbabef1207cece9981b22f0ab3a1f26b6befc5d727b828ef30"
+    }
+  ]
+}
