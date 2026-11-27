@@ -1,0 +1,40 @@
+# TabExtend (Chrome Extension: TabNav)
+
+> Local-first Chrome Manifest V3 new-tab workspace for organizing links, notes, todos, open browser tabs, and a Save for Later reading shelf.
+
+This public repository distributes verified, pre-built Chrome extension releases (`tabnav-v<version>.zip`) and checksums (`tabnav-v<version>.zip.sha256`).
+
+## For AI Coding Agents (One-Link Install & Upgrade)
+
+When a user sends you `https://github.com/blingbling2333/TabExtend-releases` and asks you to install or upgrade TabExtend:
+
+1. Run the official installer with `--json` (downloads the latest `tabnav-v*.zip`, verifies SHA-256, and unpacks cleanly into a persistent directory):
+   - macOS / Linux:
+     ```bash
+     curl -fsSL https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.sh | bash -s -- --json
+     ```
+   - Windows (PowerShell):
+     ```powershell
+     $s = Invoke-RestMethod https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.ps1; & ([scriptblock]::Create($s)) -Json
+     ```
+2. Default persistent install directory (keeps path stable across upgrades so Chrome preserves local data):
+   - macOS: `~/Applications/TabExtend`
+   - Linux: `~/.local/share/tabextend`
+   - Windows: `%LOCALAPPDATA%\TabExtend`
+3. Chrome security boundary: Do NOT tamper with Chrome profile files to force-load unpacked extensions. After the installer succeeds, report the installed version, verified SHA-256, and exact `installDir`, then ask the user to complete the final 10-second Chrome step (`chrome://extensions` → Developer mode → Load unpacked → select `installDir`; or click Reload on the existing `TabNav` card when upgrading).
+
+## Release Discovery & Asset Rules
+
+- Unthrottled Latest Release Redirect: `https://github.com/blingbling2333/TabExtend-releases/releases/latest` (redirects to `/releases/tag/v<major>.<minor>.<patch>`)
+- Latest Release JSON API: `https://api.github.com/repos/blingbling2333/TabExtend-releases/releases/latest`
+- Official archive pattern: `tabnav-v<major>.<minor>.<patch>.zip`
+- Checksum sidecar: `tabnav-v<major>.<minor>.<patch>.zip.sha256`
+- IMPORTANT: Never download GitHub's auto-generated `Source code (zip)` or `Source code (tar.gz)` archives — they are not Chrome extension packages.
+
+## Documentation
+
+- [AI Agent Install Runbook](https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/INSTALL_FOR_AI.md): Full step-by-step protocol, manual fallback without scripts, upgrade safety rules, and user handoff template.
+- [README](https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/README.md): Visual showcase, feature overview, and manual install guide.
+- [macOS / Linux Installer](https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.sh)
+- [Windows PowerShell Installer](https://raw.githubusercontent.com/blingbling2333/TabExtend-releases/main/scripts/install.ps1)
+- [Latest Release](https://github.com/blingbling2333/TabExtend-releases/releases/latest)

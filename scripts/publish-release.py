@@ -47,13 +47,28 @@ if release and not release["draft"]:
 else:
     notes = Path(os.environ.get("RUNNER_TEMP", "/tmp")) / "tabextend-release-notes.md"
     upgrades = Path(".release/release-notes.md").read_text().strip() + "\n\n---\n\n" if metadata.get("notesSha256") else ""
-    notes.write_text(upgrades + f"""下载 **`{archive}`** 并解压，然后在 `chrome://extensions` 开启开发者模式，选择「加载已解压的扩展程序」。选中直接包含 `manifest.json` 的目录。
+    notes.write_text(upgrades + f"""### 🤖 让 AI Agent 自动安装 / 更新
+
+直接将仓库链接 `https://github.com/{repository}` 发给 Claude Code / Codex / Cursor / Antigravity 等 AI 工具，或运行官方校验安装脚本（自动下载 `{archive}`、校验 SHA-256 并原地解压）：
+
+```bash
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/{repository}/main/scripts/install.sh | bash -s -- --version {metadata['version']}
+```
+
+> 更多说明与 Windows PowerShell 脚本见 [AI 安装指南](https://github.com/{repository}/blob/main/INSTALL_FOR_AI.md) · [`llms.txt`](https://github.com/{repository}/blob/main/llms.txt)
+
+---
+
+### 📦 手动安装 / 更新
+
+下载 **`{archive}`** 并解压，然后在 `chrome://extensions` 开启开发者模式，选择「加载已解压的扩展程序」。选中直接包含 `manifest.json` 的目录。
 
 更新时将新版文件替换到原安装目录，再点击扩展的重新加载按钮。建议先导出备份，无需卸载旧扩展。
 
 请下载上述 ZIP 附件，GitHub 自动生成的 `Source code` 附件不是安装包。
 
-[详细安装说明](https://github.com/{repository}#安装)
+[详细安装说明](https://github.com/{repository}#安装) · [功能预览与动图演示](https://github.com/{repository}#readme)
 
 SHA-256: `{metadata['sha256']}`
 """)

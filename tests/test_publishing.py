@@ -42,6 +42,8 @@ class PublishingTests(unittest.TestCase):
         notes = (self.root / "tabextend-release-notes.md").read_text()
         self.assertIn("Sidebar animation", notes)
         self.assertIn("chrome://extensions", notes)
+        self.assertIn("INSTALL_FOR_AI.md", notes)
+        self.assertIn("scripts/install.sh", notes)
         upload = next(call for call in self.calls if call[1:3] == ["release", "upload"])
         self.assertIn(".release/v1.2.2-sidebar.webp", upload)
         self.assertTrue(any(call[1:3] == ["release", "edit"] for call in self.calls))
