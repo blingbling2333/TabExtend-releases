@@ -1,0 +1,21 @@
+{
+  "version": "0.6.5",
+  "archive": "tabnav-v0.6.5.zip",
+  "sha256": "7ca37d4bd36c47e7c0fb46b177e67c383436aa6ca060f9ec1a81e6f317b1fff7",
+  "sourceCommit": "2d727e25503df8894049dd471565b92cf2d24414",
+  "notesSha256": "13714dec469ccdb570d8dfa9a91cf5dea89c4ef8f92cf8d2c7eaa801723ab5c6",
+  "media": [
+    {
+      "name": "v0.6.2-organizer-styled-tooltip.webp",
+      "sha256": "036dc4680f1bf8d9756afcbff01053abb2cfb9fdac2f3cb5cf0fa86038ea9224"
+    },
+    {
+      "name": "v0.6.3-organizer-unified-toast.webp",
+      "sha256": "56afe1d6b5c524f48f1719efc0482dc0b6003d03c9cd7833176716fd42e328a2"
+    },
+    {
+      "name": "v0.6.5-compact-rail-logo.webp",
+      "sha256": "0f3eab715dea0b6b6e4dbc023d650d3a5adab2143e1f35d5e8309a38029cf7b0"
+    }
+  ]
+}
